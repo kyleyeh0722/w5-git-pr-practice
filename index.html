@@ -27,6 +27,19 @@
   </div>
 
   <script>
+    function searchMessages(query) {
+      const messages = document.querySelectorAll('#chat-box .message');
+      const lowerQuery = query.toLowerCase();
+      
+      messages.forEach(msg => {
+        if (msg.textContent.toLowerCase().includes(lowerQuery)) {
+          msg.classList.remove('hidden');
+        } else {
+          msg.classList.add('hidden');
+        }
+      });
+    }
+
     function sendMessage() {
       const input = document.getElementById('user-input');
       const chatBox = document.getElementById('chat-box');
